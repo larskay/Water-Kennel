@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  full_treatment: false
+  bath: false
+  hair_dry: false
+  ears: false
+  teeth: false
+  claws: false
+  shaving: false
+  napping: false
+  brush: false
+  form_cut: false
+  walk: false
+  minutes: 1
+  price: 9.99
+
+two:
+  full_treatment: false
+  bath: false
+  hair_dry: false
+  ears: false
+  teeth: false
+  claws: false
+  shaving: false
+  napping: false
+  brush: false
+  form_cut: false
+  walk: false
+  minutes: 1
+  price: 9.99

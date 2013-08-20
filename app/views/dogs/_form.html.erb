@@ -1,0 +1,32 @@
+<div class="adminheader"><%= @dog.new_record? ? "New Dog" : "Update Dog" %></div>
+<%= simple_form_for(@dog, :html => {:multipart => true, id: "dog_form", class: "form-horizontal form-inline" }) do |f| %>
+<% if @dog.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= pluralize(@dog.errors.count, "error") %> prohibited this dogs from being saved:</h3>
+
+          <ul>
+            <% @dog.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <%= f.input :nickname, label: "Nickname", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge', placeholder: "Nickname"} %>
+    <%= f.input :name, label: "Dogs Name", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'}, placeholder: "Dogs Name" %>
+    <%= f.input :regnr, label: "Regnr", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'}, placeholder: "Regnr" %>
+    <%= f.input :allergies, label: "Allergies", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'},  placeholder: "Allergies" %>
+    <%= f.input :race, label: "Race", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'},  placeholder: "Race" %>
+    <%= f.input :born, as: "string",  label: "Born", label_html: { class: "label label-info" }, input_html: { id: "born_date", class: 'input-xlarge'}, placeholder: "Born" %>
+    <%= f.input :IDtagged, label: "ID Tagged", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'}, placeholder: "ID Tagged" %>
+    <%= f.label :photo, "Upload Photo", class: "label label-info" %>
+    <div id="wrapper">
+      <%= f.input :photo, :as => "file" , input_html: { id: "photo" }%>
+      <label id="photo_path"></label><%= image_tag @dog.photo %>
+      <%= f.submit :upload, :type => 'button', id: "upload", class: "btn btn-file", value: "Choose" %>
+    </div><br>
+    <div class="btn-group">
+      <%= f.submit @dog.new_record? ? "Save Dog" : "Update Dog", id: "submit", class: "btn" %>
+      <%= link_to "Empty Form", new_dog_path, class: "btn" %>
+    </div>
+  </span>
+<% end %>

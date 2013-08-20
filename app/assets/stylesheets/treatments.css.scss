@@ -1,0 +1,19 @@
+// Place all the styles related to the treatments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+#empty_treatment_form{
+  position: relative;
+  left: -330px;
+}
+table#iseqchart{
+  width: 900px;
+    th{
+      width: 300px;
+    }
+    td{
+      width: 300px;
+    }
+}

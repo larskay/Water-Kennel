@@ -1,0 +1,24 @@
+<div class="adminheader"><%= @owner.new_record? ? "New Owner" : "Update Owner" %></div>
+<%= simple_form_for(@owner, :html => {:multipart => true, id: "owner_form", class: "form-horizontal form-inline" }) do |f| %>
+<% if @owner.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= pluralize(@owner.errors.count, "error") %> prohibited this dogs from being saved:</h3>
+
+          <ul>
+            <% @owner.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <%= f.input :name, label: "Name", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge', placeholder: "Name"} %>
+    <%= f.input :address, label: "Address", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'}, placeholder: "Address" %>
+    <%= f.input :zip_code, as: "string",  label: "Zip-Code", label_html: { class: "label label-info" }, input_html: { id: "zip_code", class: 'input-xlarge'}, placeholder: "Zip-Code" %>
+    <%= f.input :tlf, label: "Tlf", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'}, placeholder: "Telephone Nr." %>
+    <%= f.input :mobile, label: "Mobile", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'},  placeholder: "Mobile Nr." %>
+    <div class="btn-group">
+      <%= f.submit @owner.new_record? ? "Save Owner" : "Update Owner", id: "submit", class: "btn" %>
+      <%= link_to "Empty Form", new_owner_path, class: "btn" %>
+    </div>
+  </span>
+<% end %>

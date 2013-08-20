@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nickname: MyString
+  name: MyString
+  regnr: MyString
+  allergies: MyString
+  born: 2013-08-09 09:16:30
+  IDtagged: 
+  race: MyString
+
+two:
+  nickname: MyString
+  name: MyString
+  regnr: MyString
+  allergies: MyString
+  born: 2013-08-09 09:16:30
+  IDtagged: 
+  race: MyString
