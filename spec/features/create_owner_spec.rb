@@ -10,7 +10,6 @@ feature "Owner & Information" do
     fill_in "Address", with: "Example Address"
     fill_in "Tlf", with: "51515151"
     fill_in "Mobile", with: "98430315"
-    fill_in "Zip-Code", with: "4326"
 
     click_button "Save Owner"
     expect(page).to have_content("Owner created successfully")

@@ -1,3 +1,5 @@
 class Treatment < ActiveRecord::Base
-  belongs_to :dogs
+  has_one :dog
+
+  accepts_nested_attributes_for :dog
 end

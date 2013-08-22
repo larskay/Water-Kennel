@@ -1,5 +1,5 @@
-<div class="adminheader"><%= @treatment.new_record? ? "New Treatment" : "Update Treatment" %></div>
-<%= simple_form_for(@treatment, :html => {:multipart => true, id: "treatment_form", class: "form-horizontal form-inline" }) do |f| %>
+<h3><%= @treatment.new_record? ? "New Treatment" : "Update Treatment" %></h3>
+<%= simple_form_for([@dog, @treatment], :html => {:multipart => true, id: "treatment_form", class: "form-horizontal form-inline" }) do |f| %>
 <% if @treatment.errors.any? %>
         <div id="error_explanation">
           <h3><%= pluralize(@treatment.errors.count, "error") %> prohibited this treatment from being saved:</h3>
@@ -10,7 +10,7 @@
           </ul>
         </div>
     <% end %>
-    <table>
+    <table id="treatment_index">
     <td><%= f.input :date, as: "string", label: "Date", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge', placeholder: "Date"} %></td>
     <tr><td><%= f.input :full_treatment, as: :boolean, label: "Full Treatment", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'} %></td>
     <td><%= f.input :bath, as: :boolean,  label: "Bath", label_html: { class: "label label-info" }, input_html: { id: "zip_code", class: 'input-xlarge'} %></td></tr>
@@ -23,11 +23,12 @@
     <tr><td><%= f.input :brush, as: :boolean, label: "Brush", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'} %></td>
     <td><%= f.input :form_cut, as: :boolean, label: "Form Cut", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'} %></td></tr>
     <tr><td><%= f.input :walk, as: :boolean, label: "Walk", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'} %></td></tr>
-    <tr><td><%= f.input :minutes, as: :integer, label: "Minutes", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'} %></td></tr>
-    <tr><td><%= f.input :price, as: :integer, label: "Price", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge'} %></td></tr>
+    <tr><td><%= f.input :minutes, as: :integer, label: "Minutes", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge', placeholder: "0 min"} %></td></tr>
+    <tr><td><%= f.input :price, as: :integer, label: "Price", label_html: { class: "label label-info" }, input_html: { class: 'input-xlarge', placeholder: "0.00 kr"} %></td></tr>
     <tr>
+
       <div class="btn-group">
-        <tr><td><%= f.submit @treatment.new_record? ? "Save Treatment" : "Update Treatment", id: "submit", class: "btn" %></td>
+        <tr><td><%= f.submit  "Save Treatment", id: "submit", class: "btn" %></td>
         <td><%= link_to "Empty Form", new_treatment_path, class: "btn", id: "empty_treatment_form" %></td></tr>
       </div>
     </tr>

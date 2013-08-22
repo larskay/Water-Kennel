@@ -4,8 +4,10 @@ Dogsonly::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  get '/', to: 'dogs#index'
-  resources :dogs
+  root :to => "dogs#index"
+  resources :dogs do
+    resources :treatments
+  end
   resources :owners
   resources :treatments
   # Example of regular route:

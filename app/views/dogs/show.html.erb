@@ -21,4 +21,5 @@
 <div class="btn-group">
   <%= link_to "Delete", @dog, method: :delete, data: { confirm: "You sure?" }, class: "btn" %>
   <%= link_to "Edit", edit_dog_path(@dog), class: "btn" %>
+  <%= link_to "New Treatment", new_dog_treatment_path(@dog), class: "btn" %>
 </div>

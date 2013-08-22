@@ -12,6 +12,7 @@
  *= require bootstrap-datepicker
  *= require_tree .
  */
+
 @import "bootstrap";
 @import "bootstrap-responsive";
 
@@ -33,6 +34,9 @@ html{
   background-color: white;
   z-index: 0;
 }
+form label{
+  text-align: right;
+}
 body {
   padding: 0 30px 0;
   background-image: linear-gradient(to bottom, white, #f2f2f2);
@@ -40,8 +44,9 @@ body {
   font-size: 12px;
 }
 
-.adminheader{
-  color:white;
+h3{
+  width: 40%;
+  color: white!important;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 1.25em;
@@ -50,9 +55,13 @@ body {
   background: #3C4049;
   border-radius: 4px;
   text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+  height: 30px;
 }
 .header_container{
   width: 70%;
   max-width: 70%;
   margin: auto;
+}
+table#iseqchart{
+  width: 100%;
 }

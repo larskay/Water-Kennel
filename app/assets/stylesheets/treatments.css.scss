@@ -8,12 +8,18 @@
   position: relative;
   left: -330px;
 }
-table#iseqchart{
-  width: 900px;
-    th{
-      width: 300px;
-    }
-    td{
-      width: 300px;
-    }
+table {
+  width: 30%;
+  th{
+    font-size: 12px;
+  }
+  td{
+    font-size: 12px;
+  }
 }
+#treatment_index{
+  td{
+    width: 100px;
+  }
+}
+

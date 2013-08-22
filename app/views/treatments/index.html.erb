@@ -1,24 +1,70 @@
-<div class="adminheader">Treatments</div>
-<%= link_to "New Treatment", new_treatment_path, :class => "btn btn-medium btn-primary" %>
-<% @treatments.each do |treatment| %>
-<table class="table table-striped">
+<h3>Treatments</h3>
+<table id="treatment_index" class="center table table-striped table-hover responsive">
+  <thead>
+    <tr>
+      <th data-hide="phone,tablet"><i class="icon-tags"></i>Date</th>
+      <th></th>
+      <th data-hide="phone,tablet"><i class="icon-tag"></i>Full Treatment</th>
+      <th></th>
+      <th>Bath</th>
+      <th></th>
+      <th>Hair Dry</th>
+      <th></th>
+      <th>Ears</th>
+      <th></th>
+      <th>Teeth</th>
+      <th></th>
+      <th>Claws</th>
+      <th></th>
+      <th>Shaving</th>
+      <th></th>
+      <th>Napping</th>
+      <th></th>
+      <th>Brush</th>
+      <th></th>
+      <th>Form Cut</th>
+      <th></th>
+      <th>Walk</th>
+      <th></th>
+      <th><i class="icon-calendar"></i>Minutes</th>
+      <th></th>
+      <th><i class="icon-dollar"></i>Price</th>
+      <th></th>
+    </tr>
+  </thead>
   <tbody>
-    <tr><th><i class="icon-th-list"></i>Date</th><td><%= treatment.date %></td>
-    <th><i class="icon-th-list"></i>Full Treatment</th><td><%= treatment.full_treatment %></td></tr>
-    <tr><th><i></i>Bath</th><td><%= treatment.bath %></td>
-    <tr><th><i></i>Hair Dry</th><td><%= treatment.hair_dry %></td></tr>
-    <tr><th><i></i>Ears</th><td><%= treatment.ears %></td>
-    <tr><th><i></i>Teeth</th><td><%= treatment.teeth %></td>
-    <tr><th><i></i>Claws</th><td><%= treatment.claws %></td>
-    <tr><th><i></i>Shaving</th><td><%= treatment.shaving %></td>
-    <tr><th><i></i>Napping</th><td><%= treatment.napping %></td>
-    <tr><th><i></i>Brush</th><td><%= treatment.brush %></td>
-    <tr><th><i></i>Form Cut</th><td><%= treatment.form_cut %></td>
-    <tr><th><i></i>Walk</th><td><%= treatment.walk %></td>
-    <tr><th><i></i>Minutes</th><td><%= treatment.minutes %></td>
-    <tr><th><i></i>Price</th><td><%= treatment.price %></td>
-  </tbody>
-</table>
+    <% @treatments.each do |treatment| %>
+    <tr>
+      <td><%= link_to treatment.date.to_date, treatment %></td>
+      <td></td>
+      <td><%= is_true_or_false(treatment.full_treatment) %></td>
+      <td></td>
+      <td><%= is_true_or_false(treatment.bath) %></td>
+      <td></td>
+      <td><%= is_true_or_false(treatment.hair_dry) %>
+      <td></td>
+      <td></i><%= is_true_or_false(treatment.ears) %></td>
+      <td></td>
+      <td></i><%= is_true_or_false(treatment.teeth) %></td>
+      <td></td>
+      <td></i><%= is_true_or_false(treatment.claws) %></td>
+      <td></td>
+      <td></i><%= is_true_or_false(treatment.shaving) %></td>
+      <td></td>
+      <td></i><%= is_true_or_false(treatment.napping) %></td>
+      <td></td>
+      <td></i><%= is_true_or_false(treatment.brush) %></td>
+      <td></td>
+      <td></i><%= is_true_or_false(treatment.form_cut) %></td>
+      <td></td>
+      <td></i><%= is_true_or_false(treatment.walk) %></td>
+      <td></td>
+      <td></i><%= distance_of_time_in_words(treatment.minutes) %></td>
+      <td></td>
+      <td><i class="icon-dollar"></i><%= number_to_currency(treatment.price, unit: "kr. ") %></td>
+      <td></td>
+    </tr>
     <% end %>
     <%= will_paginate @treatment, renderer: BootstrapPagination::Rails %>
 </div>
+

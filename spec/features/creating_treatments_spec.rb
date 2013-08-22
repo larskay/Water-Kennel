@@ -1,7 +1,9 @@
 feature "Crud for treatments" do
   before do
     visit "/"
-    click_link "Treatments"
+    click_link "Dogs"
+    FactoryGirl.create(:dog)
+    click_link "Haily"
   end
 
   scenario "Creating new treatment with valid information" do

@@ -5,14 +5,15 @@
     <tr>
       <th data-hide="phone,tablet"><i class="icon-tags"></i>Name</th>
       <th></th>
-      <th data-hide="phone,tablet"><i class="icon-tag"></i>Address</th>
+      <th data-hide="phone,tablet"><i class="icon-home"></i>Address</th>
       <th></th>
-      <th><i class="icon-barcode"></i>Tlf</th>
+      <th><i class="icon-home"></i>Zip-Code</th>
       <th></th>
-      <th><i class="icon-heart"></i>Mobile</th>
+      <th><i class="icon-iphone"></i>Tlf</th>
       <th></th>
-      <th><i class="icon-calendar"></i>Zip-Code</th>
+      <th><i class="icon-iphone"></i>Mobile</th>
       <th></th>
+
     </tr>
   </thead>
   <tbody>
@@ -22,11 +23,11 @@
       <td></td>
       <td><%= owner.address %></td>
       <td></td>
+      <td></i><%= owner.zip_code %></td>
+      <td></td>
       <td><%= owner.tlf %></td>
       <td></td>
       <td><%= owner.mobile %></td>
-      <td></td>
-      <td></i><%= owner.zip_code %></td>
       <td></td>
     </tr>
     <% end %>
