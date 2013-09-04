@@ -19,9 +19,9 @@
 html{
   height: 100%;
 }
-#wrap{
-  height: 94%;
-  width: 70%;
+#main{
+  height: 88%;
+  width: 80%;
   margin: 0 auto;
   text-align: left;
   border-left: dotted;
@@ -38,30 +38,62 @@ form label{
   text-align: right;
 }
 body {
-  padding: 0 30px 0;
-  background-image: linear-gradient(to bottom, white, #f2f2f2);
+  padding: 0 0 0;
+  /*background-image: linear-gradient(to bottom, white, #f2f2f2);*/
   height: 100%;
   font-size: 12px;
 }
 
-h3{
-  width: 40%;
-  color: white!important;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 1.25em;
-  margin-top: 1.25em;
-  padding: 5px 10px;
-  background: #3C4049;
-  border-radius: 4px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,.5);
-  height: 30px;
-}
+
 .header_container{
-  width: 70%;
-  max-width: 70%;
+  max-width: 100%;
   margin: auto;
 }
 table#iseqchart{
   width: 100%;
+}
+.span1{
+  width: 80%;
+}
+.span10, .table{
+  width: 400px;
+}
+.container{
+  width: 85%!important;
+  height: 90%;
+}
+@media screen and (min-width: 800px) {
+  #wrap {
+    width: 90%;
+    min-width: 0;
+    margin: none;
+  }
+  body{
+    margin: none;
+    max-width: 100%;
+    min-width: 10%;
+  }
+  .well{
+    max-width: 50%;
+    min-width: 10%;
+  }
+  .group{
+    max-width: 50%;
+    min-width: 10%;
+  }
+  .group-title{
+    max-width: 50%;
+    min-width: 10%;
+  }
+  .row{
+    max-width: 50%;
+    min-width: 10%;
+  }
+  #column-main {
+    margin-left: 0;
+  }
+  #column-sidebar {
+    width: auto;
+    float: none;
+  }
 }

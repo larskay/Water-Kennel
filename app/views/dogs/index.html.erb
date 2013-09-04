@@ -1,30 +1,37 @@
 <h3>Dogs</h3>
-<%= link_to "New Dog", new_dog_path, :class => "btn btn-medium btn-primary" %>
-<table id="iseqchart" class="center table table-striped table-hover responsive">
-  <thead>
-    <tr>
-      <th><i class="icon-tags"></i>Nickname</th>
-      <th><i class="icon-tag"></i>Dogs Name</th>
-      <th><i class="icon-barcode"></i>Regnr</th>
-      <th><i class="icon-heart"></i>Allergies</th>
-      <th><i class="icon-calendar"></i>Born</th>
-      <th><i class="icon-barcode"></i>IDtagged</th>
-      <th><i class="icon-dog"></i>Race</th>
-    </tr>
-  </thead>
-  <tbody>
+<%= link_to "New Dog", new_dog_path, :class => "new_dog btn btn-medium btn-primary" %>
     <% @dogs.each do |dog| %>
-    <tr>
-      <td><%= link_to dog.nickname, dog %></td>
-      <td><%= dog.name %></td>
-      <td><%= dog.regnr %></td>
-      <td><%= dog.allergies %></td>
-      <td></i><%= dog.born %></td>
-      <td><%= dog.IDtagged %></td>
-      <td><%= dog.race %></td>
-    </tr>
-    <% end %>
-    <%= will_paginate @dogs, renderer: BootstrapPagination::Rails %>
-  </body>
-</table>
-
+<div id="screen" class="well">
+  <div class="row">
+    <div class="group">
+        <div class="group-title"><b>Nickname</b></div>
+        <%= link_to dog.nickname, dog %>
+    </div>
+    <div class="group">
+      <div class="group-title"><b>Name</b></div>
+        <%= dog.name %>
+    </div>
+    <div class="group">
+      <div class="group-title"><b>Reg nr.</b></div>
+        <%= dog.regnr %>
+    </div>
+    <div class="group">
+      <div class="group-title"><b>Allergies</b></div>
+        <%= dog.allergies %>
+    </div>
+    <div class="group">
+      <div class="group-title"><b>Born</b></div>
+        <%= dog.born.to_date %>
+    </div>
+    <div class="group">
+      <div class="group-title"><b>ID tagged</b></div>
+        <%= dog.IDtagged %>
+    </div>
+    <div class="group">
+      <div class="group-title"><b>Race</b></div>
+        <%= dog.race %>
+    </div>
+  </div>
+</div>
+<% end %>
+<%= will_paginate @dogs, renderer: BootstrapPagination::Rails %>

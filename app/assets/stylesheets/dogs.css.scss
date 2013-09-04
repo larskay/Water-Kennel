@@ -11,4 +11,32 @@
 table{
   width: 100%;
 }
-
+div#screen {
+  height: 15px;
+  display: table;
+  width: 80%;
+  margin-left: 65px;
+}
+#screen .row {
+  display: table-row;
+}
+.group {
+  width: 400px;
+  height: 40px;
+  color: black;
+  background-color: lightgray;
+  border-color: #d6e9c6;
+  display: table-cell;
+}
+.new_dog{
+  position: relative;
+  left: 65px;
+}
+h3{
+  position: relative;
+  left: 65px;
+}
+#dog_image{
+  width: 70px;
+  height: 50px;
+}

@@ -17,9 +17,15 @@ table {
     font-size: 12px;
   }
 }
+#dog_treatments{
+  position: relative;
+}
 #treatment_index{
+  th{
+    width: auto;
+  }
   td{
-    width: 100px;
+    width: auto;
   }
 }
 

@@ -8,8 +8,12 @@ Dogsonly::Application.routes.draw do
   resources :dogs do
     resources :treatments
   end
-  resources :owners
+  resources :owners do
+    resources :dogs
+  end
+
   resources :treatments
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

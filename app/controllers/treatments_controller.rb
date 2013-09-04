@@ -1,7 +1,7 @@
 class TreatmentsController < ApplicationController
 
   before_action :find_treatment, only: [ :show, :edit ]
-  before_action :find_dog, only: [:new, :show, :edit, :update, :destroy]
+  before_action :find_dog, only: [:create, :new, :show, :edit, :update, :destroy, :index]
   before_action :set_treatment, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -26,7 +26,7 @@ class TreatmentsController < ApplicationController
   end
 
   def index
-    @treatments = Treatment.paginate(:page => params[:page], :per_page => 10)
+    @treatments = Treatments.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

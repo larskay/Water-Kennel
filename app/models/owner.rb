@@ -1,4 +1,4 @@
 class Owner < ActiveRecord::Base
-
-  validates :name, :mobile, presence: true
+	has_many :dogs
+  	validates :name, :mobile, presence: true
 end

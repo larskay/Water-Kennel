@@ -18,3 +18,38 @@
   <%= link_to "Delete", @owner, method: :delete, data: { confirm: "You sure?" }, class: "btn" %>
   <%= link_to "Edit", edit_owner_path(@owner), class: "btn" %>
 </div>
+
+<h4>Dogs</h4>
+<%= link_to "Add Dog", new_owner_dog_path(@owner), class: "btn btn-success" %>
+
+
+<div class="table">
+  <table class="table table-striped table-hover">
+    <thead>
+      <th>Dogs name</th>
+      <th>Nickname</th>
+      <th>Regnr</th>
+      <th>Allergies</th>
+      <th>Born</th>
+      <th>Id tagged</th>
+      <th>Race</th>
+      <th>Photp</th>
+    </thead>
+    <tbody>
+      <% if @owner.dogs.any? %>
+      <% @owner.dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.name %></td>
+        <td><%= dog.nickname %></td>
+        <td><%= dog.regnr %></td>
+        <td><%= dog.allergies %></td>
+        <td><%= dog.born.to_date %></td>
+        <td><%= dog.IDtagged %></td>
+        <td><%= dog.race %></td>
+        <td><%= link_to image_tag(dog.photo, id: "dog_image"), dog.photo.url %></td>
+      </tr>
+      <% end %>
+      <% end %>  
+    </tbody>
+  </table>
+</div>

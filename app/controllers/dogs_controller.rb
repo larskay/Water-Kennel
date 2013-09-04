@@ -1,8 +1,14 @@
 class DogsController < ApplicationController
+  before_action :find_dog, only: [ :edit, :destroy, :update, :show ]
+  before_action :find_owner, only: [:new, :destroy, :update, :create ]
+  before_action :find_dogs, only: [:create, :new ]
+  
+
   def create
-    @dog = Dog.create(dog_params)
+    @dog = @owner.dogs.build(dog_params)
     @uploader = PhotoUploader.new
     @uploader.store!(dog_params[:photo])
+
     if @dog.save
       flash[:notice] = "Dog was saved successfully"
       redirect_to @dog
@@ -11,32 +17,29 @@ class DogsController < ApplicationController
       render :action => 'new'
     end
   end
+  def new
+    @dog = @owner.dogs.build
+  end
 
   def edit
-    @dog = Dog.find(params[:id])
   end
+
   def show
-    @dog = Dog.find(params[:id])
-    respond_to do |format|
-      format.html
-    end
   end
 
   def index
     @dogs = Dog.paginate(:page => params[:page], :per_page => 10)
   end
   def new
-    @dog = Dog.new
+    @dog = @owner.dogs.build
   end
   def destroy
-    @dog = Dog.find(params[:id])
-    @dog.destroy
+    @owner.destroy
     flash[:notice] = "Dog was deleted successfully"
     redirect_to dogs_path
   end
 
   def update
-    @dog = Dog.find(params[:id])
     if @dog.update_attributes(dog_params)
       flash[:notice] = "Dog was updated successfully"
       redirect_to @dog
@@ -47,8 +50,18 @@ class DogsController < ApplicationController
   end
 end
 private
+def find_dog
+  @dog = Dog.find(params[:id])
+end
+def find_owner
+  @owner = Owner.find(params[:owner_id])
+end
+def find_dogs
+  @dog = @owner.dogs.find_by_id(params[:owner_id])
+end
+
 def dog_params
   unless params[:dog].blank?
-    params.require(:dog).permit(:nickname, :name, :race, :born, :IDtagged, :allergies, :regnr, :photo)
+    params.require(:dog).permit(:nickname, :name, :race, :born, :IDtagged, :allergies, :regnr, :photo, :owner_id)
   end
 end

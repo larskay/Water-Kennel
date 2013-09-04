@@ -1,5 +1,5 @@
 <div class="adminheader"><%= @owner.new_record? ? "New Owner" : "Update Owner" %></div>
-<%= simple_form_for(@owner, :html => {:multipart => true, id: "owner_form", class: "form-horizontal form-inline" }) do |f| %>
+<%= simple_form_for([@owner, @dog], :html => {:multipart => true, id: "owner_form", class: "form-horizontal form-inline" }) do |f| %>
 <% if @owner.errors.any? %>
         <div id="error_explanation">
           <h3><%= pluralize(@owner.errors.count, "error") %> prohibited this dogs from being saved:</h3>

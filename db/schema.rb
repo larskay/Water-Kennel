@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130821111014) do
+ActiveRecord::Schema.define(version: 20130904183439) do
 
   create_table "dogs", force: true do |t|
     t.string   "nickname"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20130821111014) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo"
+    t.integer  "owner_id"
   end
 
   create_table "owners", force: true do |t|
@@ -56,7 +57,5 @@ ActiveRecord::Schema.define(version: 20130821111014) do
     t.datetime "date"
     t.integer  "dog_id"
   end
-
-  add_index "treatments", ["dog_id"], name: "index_treatments_on_dog_id"
 
 end
